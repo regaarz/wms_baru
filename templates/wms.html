@@ -1,0 +1,29 @@
+<html>
+    <head>
+        Warehoyse Management System
+    </head>
+    <body>
+        <table border="5">
+            <tr>
+                <th>
+                    Product
+                </th>
+                <th>
+                    status
+                </th>
+        {% for task in Product: %}
+            <tr>
+                <td>
+                    {{Product[0]}}
+                </td>
+                <td>
+                    {{Product[1]}}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    </body>
+
+
+</html>
