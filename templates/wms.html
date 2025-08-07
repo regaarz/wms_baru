@@ -7,7 +7,7 @@
             <input type="text" name = "productName">
             <input type="text" name = "categoryProduct">
             <input type="text" name = "dueDate">
-            <input type="text" name = "status">
+            <input type="text" name = "rfid">
             <input type="submit" value = "add product">
         </form>
 
@@ -23,41 +23,30 @@
                     Category Product
                 </th>
                 <th>
-                    due date
-                </th>
-                    <th>
-                    created_at
-                </th>
-                    <th>
-                    update_at
-                </th>
-                <th>
-                    status
+                    rfid_tag
                 </th>
             </tr>
         {% for task in Product: %}
             <tr>
-                <td>
-                    {{task[0]}}
-                </td>
-                <td>
-                    {{task[1]}}
-                </td>
-                <td>
-                    {{task[2]}}
-                </td>
-                <td>
-                    {{task[3]}}
-                </td>
-                <td>
-                    {{task[4]}}
-                </td>
-                <td>
-                    {{task[5]}}
-                </td>
-                <td>
-                    {{task[6]}}
-                </td>
+                <form method ="post" action="/update">
+                    <td>
+                        <input type ="hidden" name="id" value = "{{task[0]}}"/>
+                        <input type ="text" name="updateProduct" value = "{{task[1]}}"/>
+                    </td>
+                    <td>
+                        {{task[2]}}
+                    </td>
+                    <td>
+                        {{task[3]}}
+                    </td>
+                    <td>
+                        <input type="submit" name="save_or_delete" value="save">
+                    </td>
+                    <td>
+                        <input type="submit" name="save_or_delete" value="x">
+                    </td>
+
+                </form>
             </tr>
             {% endfor %}
         </table>
