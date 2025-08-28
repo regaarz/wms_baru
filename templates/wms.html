@@ -1,57 +1,38 @@
 <html>
-    <head>
-        Warehouse Management System
-    </head>
-    <body>
-        <form method="post" action="/add">
-            <input type="text" name = "productName">
-            <input type="text" name = "categoryProduct">
-            <input type="text" name = "dueDate">
-            <input type="text" name = "rfid">
-            <input type="submit" value = "add product">
-        </form>
+  <head>
+    <title>Warehouse Management System</title>
+  </head>
+  <body>
 
-        <table border="5">
-            <tr>
-                <th>
-                    Product id
-                </th>
-                <th>
-                    Product Name
-                </th>
-                <th>
-                    Category Product
-                </th>
-                <th>
-                    rfid_tag
-                </th>
-            </tr>
-        {% for task in Product: %}
-            <tr>
-                <form method ="post" action="/update">
-                    <td>
-                        <input type ="hidden" name="id" value = "{{task[0]}}"/>
-                        <input type ="text" name="updateProduct" value = "{{task[1]}}"/>
-                    </td>
-                    <td>
-                        {{task[2]}}
-                    </td>
-                    <td>
-                        {{task[3]}}
-                    </td>
-                    <td>
-                        <input type="submit" name="save_or_delete" value="save">
-                    </td>
-                    <td>
-                        <input type="submit" name="save_or_delete" value="x">
-                    </td>
+    <br>
 
-                </form>
-            </tr>
-            {% endfor %}
-        </table>
+    <table border="1">
+      <tr>
+        <th>Product ID</th>
+        <th>Product Name</th>
+        <th>Category</th>
+        <th>RFID</th>
+      </tr>
+      {% for task in Product %}
+      <tr>
+        <td>{{ task[0] }}</td>
+        <td>{{ task[1] }}</td>
+        <td>{{ task[2] }}</td>
+        <td>{{ task[3] }}</td>
+      </tr>
+      {% endfor %}
+    </table>
 
-    </body>
+    <br>
 
+    <!-- Tombol ke update.html dan delete.html -->
+    <form action="/update" method="get" style="display: inline;">
+      <button type="submit">Update</button>
+    </form>
 
+    <form action="/delete" method="get" style="display: inline;">
+      <button type="submit">Delete</button>
+    </form>
+
+  </body>
 </html>

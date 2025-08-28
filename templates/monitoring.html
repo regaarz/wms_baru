@@ -1,0 +1,107 @@
+<html>
+<head>
+    <title>Warehouse Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse; /* Hilangkan jarak antar border */
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 12px 15px; /* Jarak isi sel */
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9; /* Warna baris genap */
+        }
+
+        tr:hover {
+            background-color: #e6f7ff; /* Efek hover */
+        }
+
+        /* Tombol */
+        form {
+            display: inline-block;
+            margin: 10px;
+        }
+
+        button {
+            padding: 8px 14px;
+            border: none;
+            border-radius: 4px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Warehouse Management System</h1>
+
+    <table>
+        <tr>
+            <th>Product id</th>
+            <th>Product Name</th>
+            <th>Category Product</th>
+            <th>RFID Tag</th>
+        </tr>
+        {% for task in Product: %}
+        <tr>
+            <td>{{task[0]}}</td>
+            <td>{{task[1]}}</td>
+            <td>{{task[2]}}</td>
+            <td>{{task[3]}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <div style="text-align: center;">
+        <form action="/update" method="get">
+            <button type="submit">Update</button>
+        </form>
+
+        <form action="/delete" method="get">
+            <button type="submit">Delete</button>
+        </form>
+        
+        <form action="/add" method="get">
+            <button type="submit">Add</button>
+        </form>
+
+        <form action="/management" method="get">
+            <button type="submit">User Management</button>
+        </form>
+
+    </div>
+
+</body>
+</html>
